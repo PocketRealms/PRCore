@@ -126,6 +126,19 @@ namespace PRCore
 		{
 			player.HealthManager = player.HealthManager is NoDamageHealthManager ? new HealthManager(player) : new NoDamageHealthManager(player);
 		}
-
+		
+		[Command(Command = "getpos")]
+		public void getPos(Player player){
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine(string.Format("Position X:{0:F1} Y:{1:F1} Z:{2:F1}", player.KnownPosition.X, player.KnownPosition.Y, player.KnownPosition.Z));
+			string msg = sb.ToString();
+			player.SendMessage(msg, type: MessageType.raw)
+		}
+		
+		[Command(Command = "fly")]
+		public void fly(Player player){
+			player.SendPackage(new McpeAdventureSettings {flags = 0x80});
+			player.SendMessage("Flight Enabled!");
+		}		
     }
 }
