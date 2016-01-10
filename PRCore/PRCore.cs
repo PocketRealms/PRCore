@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
@@ -10,6 +11,7 @@ using MiNET.Utils;
 using MiNET.BlockEntities;
 using MiNET.Blocks;
 using MiNET.Entities;
+using MiNET.Worlds;
 
 namespace PRCore
 {
@@ -48,7 +50,7 @@ namespace PRCore
 		{
 			player.SendMessage("§6-----[§e Server Info §6]-----");
 			player.SendMessage("§aOwners: §bMack & FuryTacticz");
-			player.sendMessage("§aTwitter: §b@PocketRealmNet");
+			player.SendMessage("§aTwitter: §b@PocketRealmNet");
 			player.SendMessage("§aWebsite: §bComing soon");
 			player.SendMessage("§aShop: §bComing soon");
 			player.SendMessage("§6-----------------------------");

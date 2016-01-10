@@ -1,7 +1,7 @@
 using MiNET;
 using MiNET.Entities;
 
-namespace TestPlugin
+namespace PRCore
 {
 	public class NoDamageHealthManager : HealthManager
 	{
