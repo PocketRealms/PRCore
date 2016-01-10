@@ -7,6 +7,9 @@ using MiNET.Plugins.Attributes;
 using MiNET;
 using MiNET.Net;
 using MiNET.Utils;
+using MiNET.BlockEntities;
+using MiNET.Blocks;
+using MiNET.Entities;
 
 namespace PRCore
 {
