@@ -26,8 +26,13 @@ namespace PRCore
 			//TODO
 		}
 		
+		[Command(Command = "help")]
+		public void ShowHelp(Player player)
+		{
+			player.SendMessage("§4Help page coming soon");
+		}
+		
 		[Command(Command = "version")]
-		[Command(Command = "ver")]
 		public void Version(Player player)
 		{
 			player.SendMessage("§eThis server is running MiNET §6(https://github.com/pocketrealms/minet)", type: MessageType.Chat);
@@ -104,41 +109,27 @@ namespace PRCore
 			player.SendMessage("§aStruck you with lightning. Playing with the gods, are you?");
 		}
 		
-		[Command(Command = "invsee")]
-		public void OpenInventory(Player player)
-		{
-			BlockCoordinates coor = new BlockCoordinates(player.KnownPosition);
-			Chest chest = new Chest
-			{
-				Coordinates = coor, Metadata = 0
-			};
-			player.Level.SetBlock(chest, true);
-			ChestBlockEntity chestBlockEntity = new ChestBlockEntity
-			{
-				Coordinates = coor
-			};
-			player.Level.SetBlockEntity(chestBlockEntity, false);
-			player.OpenInventory(coor);
-		}
-		
 		[Command(Command = "god")]
 		public void NoDamage(Player player)
 		{
 			player.HealthManager = player.HealthManager is NoDamageHealthManager ? new HealthManager(player) : new NoDamageHealthManager(player);
+			player.SendMessage("§dP§7R§8> God mode enabled");
 		}
 		
 		[Command(Command = "getpos")]
-		public void getPos(Player player){
+		public void GetPosition(Player player){
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine(string.Format("Position X:{0:F1} Y:{1:F1} Z:{2:F1}", player.KnownPosition.X, player.KnownPosition.Y, player.KnownPosition.Z));
+			sb.AppendLine(string.Format("§dP§7R§8> X:{0:F1} Y:{1:F1} Z:{2:F1}", player.KnownPosition.X, player.KnownPosition.Y, player.KnownPosition.Z));
 			string msg = sb.ToString();
 			player.SendMessage(msg, type: MessageType.raw)
 		}
 		
-		[Command(Command = "fly")]
-		public void fly(Player player){
+		[Command(Command = "fly")] //Needs improvement an option to disable
+		public void Fly(Player player)
+		{
 			player.SendPackage(new McpeAdventureSettings {flags = 0x80});
-			player.SendMessage("Flight Enabled!");
+			player.SendMessage("§dP§7R§8> §aFlight enabled");
 		}		
+		
     }
 }
