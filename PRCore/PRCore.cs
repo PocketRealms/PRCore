@@ -52,14 +52,52 @@ namespace PRCore
 		}
 		
 		[Command(Command = "info")]
-		public void Info(Player player)
+		public void Info(Player player, string otherPlayer)
 		{
-			player.SendMessage("§6-----[§e Server Info §6]-----");
-			player.SendMessage("§aOwners: §bMack & FuryTacticz");
-			player.SendMessage("§aTwitter: §b@PocketRealmNet");
-			player.SendMessage("§aWebsite: §bComing soon");
-			player.SendMessage("§aShop: §bComing soon");
-			player.SendMessage("§6-----------------------------");
+			if(otherPlayer == null)
+			{
+				player.SendMessage("§6-----[§e Server Info §6]-----");
+			    player.SendMessage("§aOwners: §bMack & FuryTacticz");
+			    player.SendMessage("§aTwitter: §b@PocketRealmNet");
+			    player.SendMessage("§aWebsite: §bComing soon");
+			    player.SendMessage("§aShop: §bComing soon");
+			    player.SendMessage("§6----------------------------");
+			}
+			else if(otherPlayer.ToLower() == "Mack")
+			{
+				player.SendMessage("§6-----[ §eMack §]-----");
+				player.SendMessage("§aRole: §bServer owner");
+				player.SendMessage("§aTwitter: §b@HyperFuseYT");
+				player.SendMessage("§aKik: §bdb_mack");
+			}
+			else if(otherPlayer.ToLower() == "FuryTacticz")
+			{
+				player.SendMessage("§6-----[ §eFuryTacticz§6 ]-----");
+				player.SendMessage("§aRole: §bServer owner");
+				player.SendMessage("§aTwitter: §b@FuryTacticz");
+				player.SendMessage("§aKik: §bFuryTacticz");
+			}
+			else if(otherPlayer.ToLower() == "TheDiamondYT7")
+			{
+				player.SendMessage("§6-----[ §eTheDiamondYT7 §6]-----");
+				player.SendMessage("§aRole: §bServer developer");
+				player.SendMessage("§aTwitter: §b@TheDiamondYT");
+				player.SendMessage("§aKik: §bgoldowl37");
+			}
+			else if(otherPlayer.ToLower() == "Asuna")
+			{
+				player.SendMessage("§6-----[ §eAsuna §6]-----");
+				player.SendMessage("§aRole: §bServer Head-Admin");
+				player.SendMessage("§aTwitter: §b@Hoersdig");
+				player.SendMessage("§aKik: §bStevie121234");
+			}
+			else if(otherPlayer.ToLower() == "BalAnce")
+			{
+				player.SendMessage("§6-----[ §eBalAnce §6]-----");
+				player.SendMessage("§aRole: §bServer developer");
+				player.SendMessage("§aTwitter: §b@BalAncelk");
+				player.SendMessage("§aKik: §bblah.jeremy");
+			}
 		}
 		
 		[Command(Command = "xp")]
@@ -114,13 +152,13 @@ namespace PRCore
 		public void NoDamage(Player player)
 		{
 			player.HealthManager = player.HealthManager is NoDamageHealthManager ? new HealthManager(player) : new NoDamageHealthManager(player);
-			player.SendMessage("§dP§7R§8> God mode enabled");
+			player.SendMessage("§dP§7R§8>§b God mode enabled");
 		}
 		
 		[Command(Command = "getpos")]
 		public void GetPosition(Player player){
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine(string.Format("§dP§7R§8> X:{0:F1} Y:{1:F1} Z:{2:F1}", player.KnownPosition.X, player.KnownPosition.Y, player.KnownPosition.Z));
+			sb.AppendLine(string.Format("§dP§7R§8>§7 X:{0:F1} Y:{1:F1} Z:{2:F1}", player.KnownPosition.X, player.KnownPosition.Y, player.KnownPosition.Z));
 			string msg = sb.ToString();
 			player.SendMessage(msg, type: MessageType.raw)
 		}
