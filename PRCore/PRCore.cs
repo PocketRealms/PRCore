@@ -14,6 +14,7 @@ using MiNET.Entities;
 using MiNET.Worlds;
 
 namespace PRCore
+
 string prefix = "§dP§7R§8>";
 
 {
