@@ -14,6 +14,8 @@ using MiNET.Entities;
 using MiNET.Worlds;
 
 namespace PRCore
+string prefix = "§dP§7R§8>";
+
 {
 	[Plugin(Author = "TheDiamondYT", Description = "PocketRealms Core", PluginName = "PRCore", PluginVersion = "1.0")]
     public class PRCore : Plugin
